@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>First_Page_Loader_Page</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ecf0f1;
+}
+
+.content h1 {
+    color: #193848;
+    text-align: center;
+    text-transform: uppercase;
+    font: 900 2.5rem 'Montserrat';
+}
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ecf0f1;
+}
+
+.loader .loader-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
+
+.loader span {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    animation: loading 2s ease infinite;
+}
+
+.loader span:nth-child(1) {
+    background: #19a6bc;
+    animation-delay: .5s;
+}
+
+.loader span:nth-child(2) {
+    background: #f63d3a;
+    animation-delay: 1s;
+}
+
+.loader span:nth-child(3) {
+    background: #f0a543;
+    animation-delay: 1.5s;
+}
+
+.loader span:nth-child(4) {
+    background: #193848;
+    animation-delay: 2s;
+}
+
+@keyframes loading {
+    0%, 100% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(80px);
+    }
+
+    50% {
+        transform: translate(80px, 80px);
+    }
+
+    75% {
+        transform: translate(0, 80px);
+    }
+}
+
+.loader.fadeOut {
+    animation: fadeOut 1s alternate;
+}
+button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #fff;
+    margin: 50px 0;
+    padding: 18px 36px;
+    border-radius: 36px;
+    font: 600 22px 'Poppins';
+    letter-spacing: 1px;
+    background: linear-gradient(
+        #006cb9, #005999
+    );
+}
+
+span {
+    position: absolute;
+    border-radius: 50%;
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+
+    from {
+        width: 0;
+        height: 0;
+        opacity: .2;
+    }
+
+    to {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="content">
+        <h1>
+            Welcome to Doctor's Meet 🩺:)
+        </h1>
+       <center><a href="Login_Form.html"><button>Login / Sign-Up</button></a></center>
+    </div>
+
+    <div class="loader">
+        <div class="loader-inner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+
+window.addEventListener('load', () => {
+
+    // Making 5s delay in website loading
+    setTimeout(() => {
+
+        loader.classList.add('fadeOut');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 1000);
+
+    }, 5000);
+
+});
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+
+    button.addEventListener('mouseenter', function (e) {
+
+        const x = e.clientX - e.target.offsetLeft;
+        const y = e.clientY - e.target.offsetTop;
+        const ripples = document.createElement('span');
+        
+        ripples.style.left = `${x}px`;
+        ripples.style.top = `${y}px`;
+
+        this.appendChild(ripples);
+        setTimeout(() => {
+            ripples.remove();
+        }, 1000);
+
+    });
+
+})
+    </script>
+</body>
+
+</html>

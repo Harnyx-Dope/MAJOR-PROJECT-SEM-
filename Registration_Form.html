@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="./style/form.css" />
+    <script>
+       function HVG(){
+        var Firstname=document.getElementById("Firstname");
+        var Lastname=document.getElementById("Lastname");
+        var email=document.getElementById("email");
+        var  password=document.getElementById("Password");
+        var  collegename=document.getElementById("Collegename");
+        var license=document.getElementById("Licenseno");
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+var theUrl = "http://localhost:8080/register";
+xmlhttp.open("POST", theUrl);
+xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xmlhttp.send(JSON.stringify({ "name": Firstname.value+Lastname.value,
+     "firstName": Firstname.value,
+     "lastName":  Lastname.value,
+     "email":  email.value,
+     "password":  password.value,
+     "collegeName":  collegename.value,
+     "license":  license.value}));
+      
+     xmlhttp.onload = () => {
+      var k= xmlhttp.responseText
+    console.log(k);   
+    if(k=="false")
+    {
+      alert("Doctor Already Present !!.... Click Ok to continue");
+      location.href="Login_Form.html";
+       
+    }
+    else
+    {
+      alert("Doctor Added SuccessFully.. Click Ok to continue");
+      location.href="Login_Form.html";
+       
+    }
+  
+  };
+  
+  }
+  function validName(fname, lname) {
+    var pattern = /^[a-zA-Z\s]+$/;
+    if (fname.value.match(pattern) && lname.value.match(pattern)) {
+      return true;
+    } else {
+      alert("Invalid name credentials");
+      return false;
+    }
+  }
+ function validCname(cname) {
+    var pattern = /^[a-zA-Z]+$/;
+    if (cname.value.match(pattern)) {
+      return true;
+    } else {
+      alert(" Invalid college name!");
+      return false;
+    }
+  }
+  function validEmail(email) {
+    var pattern = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+    if (email.value.match(pattern)) {
+      return true;
+    } else {
+      alert("Invalid Email!");
+      return false;
+    }
+  }
+  
+  function validLicence(lic) {
+    var pattern = /^\d+$/;
+    if (lic.value.match(pattern)) {
+      return true;
+    } else {
+      alert("Invalid licence number!");
+      return false;
+    }
+  }
+  
+  function KK(){
+    const lic =validLicence(document.getElementById('Licenseno'));
+    const email =  validEmail(document.getElementById('email'));
+    const cname =  validCname(document.getElementById('Collegename')); 
+    const vname = validName(document.getElementById('Firstname'),document.getElementById('Lastname'));
+
+  if(vname && cname && email && lic) HVG();
+  }
+    </script>
+     
+    
+  </head>
+  <body>
+    <div class="box">
+      <div class="subdiv-left"></div>
+      <div class="subdiv-right">
+        <!-- <h4>New here? <span><a href="">Register</a></span></h4> -->
+        <h1>Welcome</h1>
+        <p>Enter into world of doctors!</p>
+       
+        <div>
+          
+              
+                 
+        
+          <input id="Firstname" type="text" placeholder="First Name"  required />
+          <input id="Lastname" type="text" placeholder="Last Name" required />
+          <input id="email"  type="email" placeholder="Email" required />
+          <input id="Password"  type="password" placeholder="Password"  required/>
+          <input  id="Collegename" type="text" placeholder="College Name" required />
+          <input id= "Licenseno" type="tel" placeholder="Licence Number" required />
+          <input   type="submit" placeholder="Sign In" class="button" onclick="KK()" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

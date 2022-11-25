@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Glass Morphism Login Form</title>
+    <link rel="stylesheet" href="./style/login.css" />
+    <script
+      src="https://kit.fontawesome.com/3a3e121ecf.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    
+  </head>
+  <body>
+    <div class="box">
+      <script>
+//         function Login(){
+
+//           var xhttp = new XMLHttpRequest();
+//           var k=document.getElementById("password");
+//           console.log(k.value);
+           
+          
+//           xhttp.open("GET", "http://localhost:8080/ispresent/?id="+encodeURIComponent(k.value));
+// xhttp.send();
+          
+
+// xhttp.onreadystatechange  = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//        // Typical action to be performed when the document is ready:
+//         var response = xhttp.responseText;
+        
+//         if(response =="true"){
+//           alert("Login Successfull !!! Click Ok to Continue "); 
+//           history.pushState(null, null, location.href="/index1.html?lic="+encodeURIComponent(k.value));
+//         }
+//            else
+//            alert("Wrong username and Password");
+      
+//     }
+// };
+ 
+
+ 
+ 
+//    }
+    
+   function happyLogin()
+   {
+    
+    var license=document.getElementById("licenseno");
+    var email=document.getElementById("email");
+    var password=document.getElementById("password");
+    var theUrl = "http://localhost:8080/ispresent1";
+    var xmlhttp = new XMLHttpRequest();
+    console.log(license.value);
+     
+    xmlhttp.open("POST", theUrl);
+xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xmlhttp.send(JSON.stringify({"license": license.value,
+      "email": email.value,"password": password.value
+     }));
+     console.log(JSON.stringify({"license":license.value,
+      "email": email.value,"password": password.value
+     }));
+    
+      
+     xmlhttp.onload = () => {
+      var k= xmlhttp.responseText
+    console.log(k);   
+    if(k=="true")
+    {
+      
+       localStorage.setItem("licenseno",license.value);
+       localStorage.setItem("password",password.value);
+      sessionStorage.setItem (license.value,password.value);
+      
+      alert("Login Successfull !!! Click Ok to Continue "); 
+          history.pushState(null, null, location.href="/index1.html?user="+encodeURIComponent(license.value));
+          
+           
+       
+    }
+    else
+    {
+      alert("Check Your Credentials!!!"); 
+    }
+  };
+  
+  
+   }
+     </script>
+      <div class="subdiv-left"></div>
+
+      <div class="subdiv-right">
+        <h4>
+          New here? <span><a href="Registration_Form.html">Register</a></span>
+        </h4>
+
+        <h1>Welcome Back</h1>
+        <p>You have been missed!</p>
+
+        <div>
+          <input id="email" type="email" placeholder="Email" required/>
+          <input id="licenseno" type="password" placeholder="License Number" required />
+          <input id="password"  type="password"   placeholder="Password" required/>
+          
+          <input
+           
+            type="submit"
+            value="Sign In"
+            class="button"
+              
+            onclick="happyLogin()" 
+          />
+        </div>
+        <br>
+      
+        <h3 class="forget_password">
+          <a href="Reset_Password.html">Forgot Password?</a>
+        </h3>
+
+        <!-- <h3>- or continue with -</h3>
+
+        <span class="social-icons">
+          <a href=""><i class="fa-brands fa-google"></i></a>
+          <a href=""><i class="fa-brands fa-facebook"></i></a> -->
+          <!-- <a href=""><i class="fa-brands fa-twitter"></i></a> -->
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
