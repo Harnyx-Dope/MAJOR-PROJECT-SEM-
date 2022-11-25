@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("https://i.postimg.cc/3w2WZXH6/backgroundpic.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+.box {
+  width: 90%;
+  max-width: 1080px;
+  height: 650px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+  backdrop-filter: blur(1px);
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.subdiv-left {
+  width: 50%;
+  height: 620px;
+  margin: 15px;
+  margin-right: 0;
+  float: left;
+  background-color: aqua;
+  /* Abhi Bete Changes Required over here  for the image of the logo of our website*/
+  background: url("/image/logo.jpg") no-repeat center
+    center;
+  background-attachment: fixed;
+  border-radius: 1rem;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.subdiv-right {
+  width: 44%;
+  height: 620px;
+  margin: 15px;
+  float: left;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+/* .subdiv-right h4{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-align: right;
+} */
+
+.subdiv-right h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+  color: black;
+}
+
+.subdiv-right p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: black;
+  margin: 0;
+}
+
+input {
+  width: 100%;
+  max-width: 300px;
+  height: 45px;
+  border-radius: 0.75rem;
+  margin: 25px auto;
+  display: block;
+  border: 0.117em solid rgba(116, 116, 116, 0.76);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  box-sizing: border-box;
+  padding-left: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.forget_password {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.button {
+  background-color: #5271ff;
+  color: white;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  height: 50px;
+  border: 2px solid #5271ff;
+}
+
+.subdiv-right h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: 500;
+  color: black;
+}
+
+.social-icons {
+  width: fit-content;
+  margin: auto;
+  display: block;
+}
+
+.social-icons a {
+  padding: 0 10px;
+  font-size: 40px;
+  color: #5271ff;
+}
+
+@media only screen and (max-width: 860px) {
+  .subdiv-left {
+    display: none;
+  }
+
+  .subdiv-right {
+    width: 100%;
+    margin: auto;
+    display: block;
+  }
+}
