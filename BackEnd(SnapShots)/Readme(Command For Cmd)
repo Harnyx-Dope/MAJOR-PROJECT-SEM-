@@ -1,3 +1,7 @@
+Gdrive link to access the jar files:-
+https://drive.google.com/drive/folders/1oov_XI8hNJ-tdFJTpmaQbwxPSFdRz3ov?usp=share_link
+
+Command:-
 java -jar <SnapShotName>
 
-Server will run on port 8080 (api Calling) and 9090 (Chat bot)
+//Server will run on port 8080 (api Calling) and 9090 (Chat bot)
