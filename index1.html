@@ -26,7 +26,7 @@
            
              
             var k=localStorage.getItem('licenseno');
-            xhttp.open("GET", "http://localhost:8080/ispresent/?id="+encodeURIComponent(parseInt(k)));
+            xhttp.open("GET", "http://ec2-16-170-140-94.eu-north-1.compute.amazonaws.com:8080/ispresent/?id="+encodeURIComponent(parseInt(k)));
   xhttp.send();
   var count = 1;
   
