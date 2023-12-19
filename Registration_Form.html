@@ -15,7 +15,7 @@
         var  collegename=document.getElementById("Collegename");
         var license=document.getElementById("Licenseno");
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-var theUrl = "http://ec2-16-170-140-94.eu-north-1.compute.amazonaws.com:8080/register";
+var theUrl = "https://doctorsmeet1.onrender.com/register";
 xmlhttp.open("POST", theUrl);
 xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 xmlhttp.send(JSON.stringify({ "name": Firstname.value+Lastname.value,
